@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -79,6 +80,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        // Identify the audio stream, so the volume control (vulume up and down buttons)
+        // will adjust the correct stream of sound
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         // Initialize the player view.
         mPlayerView = (PlayerView) findViewById(R.id.playerView);
